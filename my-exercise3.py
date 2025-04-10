@@ -29,3 +29,28 @@ def subarreglos(arr):
 
 arr = [-2,1,-3,4,-1,2,1,-5,4]
 print(subarreglos(arr)) # Imprimimos el arreglo de subarreglos contiguos
+
+
+# II) USANDO KADANE-----------------------------------------------------------------------------------
+
+def sub_kadane(arr):
+    max_current = arr[0]
+    max_global = arr[0]
+    for i in arr:
+        max_current = max(i, max_current + i)
+        max_global = max(max_global, max_current)
+
+    return max_global
+
+arr = [-2,1,-3,4,-1,2,1,-5,4]
+print(f"Esta es la segunda solución usando Kadane: {sub_kadane(arr)}")
+
+
+
+# RESOLUCIÓN DIVIDE AND CONQUER-----------------------------------------------------
+# El coste de este algoritmo sería O(n2) en el primer bucle ya que es anidado. 
+# Luego en el segundo bucle tenemos el arreglo de subarreglos egenrado en el primero, esto seria una especie de tercer bucle anidado, por lo que el coste seria O(n3).
+# Posteriormente, las funciones max() e index() trabajan sobre un arreglo de tamaño O(n²), por lo que ambas tienen coste O(n²). 
+# Sin embargo, este coste es menor en orden de magnitud que el anterior, por lo tanto, el coste total del algoritmo sigue siendo O(n³).
+# Coste total del algoritmo es O(n3) + O(n2) = O(n3).
+# Esto se cunple para todos los casos ya que siempre se debe hacer las mismas iteraciones, no hay una condicion para no hacerlas.
