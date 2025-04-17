@@ -43,3 +43,5 @@ def longest(arr):
 
 arr = [1, 2, 4, 13, 14, 16, 17, 4, 2, 5, 6, 8, 14, 19, 20]
 print(longest(arr))  # Output esperado: [5, 6, 8] o algo como [19, 20]
+
+
